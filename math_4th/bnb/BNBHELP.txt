@@ -1,0 +1,87 @@
+Help BNB GUI 2.0 BNBN 20
+
+At the Matlab prompt type HELP BNB20 to get some information about the 
+algorithm! 
+
+MAIN WINDOW
+
+'menu file, save': Save the current settings to a MAT-file.
+
+'menu file, load': Load settings from a MAT-file which previously has 
+been saved 
+by using the BNBGUI save command.
+
+'menu edit, X -> x0': Copies the resulting values of the variables x 
+after optimization (X) to the initial values for the variables (x0).
+
+'menu edit, Z X t c fail -> base': Copies the variables Z, X, t, c and 
+fail to the Matlab base workspace.
+
+'menu help, help': This file.
+
+'menu help, copyright': Copyright information.
+
+'variables': The variables to be optimized are x. The indexes of the 
+variables are shown in the list left of the edit-fields for xub, xlb 
+and x0. Choose the variable you want to change settings for from the 
+list and change it's upper bound (xub), it's initial value (x0), it's 
+lower bound (xlb) or it's status (continuous, integer or fixed).
+
+'parameters': The parameters to be passed to fun and nonlcon (see 
+BNB20.m, 
+P1, P2, ...) can be edited here. Choose the index of the parameter you 
+want to edit from the list left of 'val' and change its value using the 
+'val' editfield.
+
+'function': Open the function window.
+
+'settings': Open the settings window.
+
+'optimize': Start the optimization (run BNB20.m).
+
+'quit': Quit BNBGUI.
+
+FUNCTION WINDOW
+
+'fun': Function to be minimized. With the 'edit' button you can edit 
+the function.
+
+'lincon': The matrixes A and Aeq and the column vectors B and Beq can 
+be loaded from MAT-files by these buttons. Use the lincon button if A, 
+B, Aeq and Beq are to be loaded from the same MAT-file.
+
+'nonlincon': Function for the constrains. With the 'edit' button you 
+can edit the function. [C;Ceq]=feval(nonlcon,x,P1,P2,...).
+
+'number of vars': Adjust the number of variables x.
+
+'number of pars': Adjust the number of parameters P1, P2, ...
+
+'to base' and 'from base': Copy the variables fun, A, B, Aeq, Beq and 
+nonlcon to the base Matlab workspace or load the same variables from 
+the base workspace.
+
+'little buttons that turn red once in a while': buttons for loading 
+functions and matrices (fun, A, B, Aeq, Beq and nonlcon) have an 
+accompanying little button that turns red if a function/matrix is 
+loaded. By pressing the little button (it will turn gray again) you 
+clear the function/matrix.
+
+'done': Close the function window.  
+
+SETTINGS WINDOW
+
+'nonconv -> no branching': (if selected:) if the sub-problem does not 
+converge do not branch it and raise fail by one. Normally BNB will 
+always branch a nonconvergent sub-problem so it can try again to find a 
+solution. A sub-problem that is a leaf of the branch-and-bound-tree 
+cannot be branched. If such a problem does not converge it will be 
+considered infeasible and fail will be raised by one.
+Using this option can make the algorithm considerable faster but may 
+lead to less than optimal results.
+
+'options': options structures for fmincon. For more info at the
+Matlab command prompt type help optimset. Please note that the field 
+options.MaxSQPIter is not supported by optimset.
+
+'done': Close the settings window.
